@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>GENERADOR MEXWIFI</title>
+        <!-- Importar Bulma CSS -->
+        <link rel="stylesheet" href="css/bulma.min.css" />
+        <!-- Importar jQuery -->
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <!-- Agregar el script de JavaScript con jQuery -->
+        <script src="js/script.js"></script>
+    </head>
+
+    <body>
+        <section class="section">
+            <div class="container">
+                <h1 class="title is-family-monospace">GENERADOR</h1>
+                <div class="columns is-desktop">
+                    <div class="column">
+                        <form>
+                            <div class="columns is-mobile">
+                                <div class="column">
+                                    <!-- Cantidad de usuarios -->
+                                    <div class="field">
+                                        <label class="label">Cantidad de usuarios</label>
+                                        <div class="control">
+                                            <input
+                                                class="input"
+                                                value="1"
+                                                type="number"
+                                                id="cantidadUsuarios"
+                                                placeholder="Ingrese la cantidad de usuarios" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Caracteres</label>
+                                        <div class="control">
+                                            <div class="select is-fullwidth">
+                                                <select id="caracter">
+                                                    <option value="minus">abcd</option>
+                                                    <option value="mayus">ABCD</option>
+                                                    <option value="num" selected>1234</option>
+                                                    <option value="minusNum">abcd1234</option>
+                                                    <option value="mayusNum">ABCD1234</option>
+                                                    <option value="todos">abcdABCD1234</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tipo de Usuario -->
+                            <div class="columns is-mobile">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Tipo de Usuario</label>
+                                        <div class="control">
+                                            <div class="select is-fullwidth">
+                                                <select id="tipoUsuario">
+                                                    <option value="1">Solo Usuario</option>
+                                                    <option value="2" selected>Usuario = Contraseña</option>
+                                                    <option value="3">Usuario y Contraseña</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Digitos</label>
+                                        <div class="control">
+                                            <div class="select is-fullwidth">
+                                                <select id="digitos">
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="columns is-mobile">
+                                <div class="column">
+                                    <!-- Perfil -->
+                                    <div class="field">
+                                        <label class="label">Perfil</label>
+                                        <div class="control">
+                                            <input class="input" type="text" id="perfil" value="default" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <!-- Tiempo Límite -->
+                                    <div class="field">
+                                        <label class="label">Tiempo Límite</label>
+                                        <div class="control">
+                                            <input
+                                                class="input"
+                                                type="text"
+                                                id="tiempoLimite"
+                                                placeholder="30m, 1h, 1h30m, 1d, 7d, 30d" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns is-mobile">
+                                <div class="column">
+                                    <!-- Comentario -->
+                                    <div class="field">
+                                        <label class="label">Comentario</label>
+                                        <div class="control">
+                                            <input
+                                                class="input"
+                                                id="comentario"
+                                                type="text"
+                                                placeholder="Ingrese un comentario" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <!-- Comentario -->
+                                    <div class="field">
+                                        <label class="label">Prefijo</label>
+                                        <div class="control">
+                                            <input
+                                                class="input"
+                                                id="prefijo"
+                                                type="text"
+                                                placeholder="Ingrese el Prefijo" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botones -->
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button class="button is-primary" id="generarBtn" type="button">Generar</button>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link" id="copiarBtn" type="button">Copiar</button>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-info" id="imprimirBtn" type="button">Imprimir</button>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-danger" id="descargarBtn" type="button">Descargar</button>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-warning" id="descargarRst" type="reset">Limpiar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <h5 class="subtitle has-text-info has-text-centered is-family-monospace">
+                                    CODIGO DE CONSOLA MIKROTIK
+                                </h5>
+                                <textarea class="textarea" name="codigo" id="resultado" readonly></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
